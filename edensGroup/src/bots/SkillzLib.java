@@ -91,6 +91,22 @@ public class SkillzLib {
 		
     	return null;
 	}
+    
+    
+    public static boolean isBunkerInDanger(Game game, Portal[]portals) {
+        for(Portal p:portals) {
+            for(Elf e:game.getEnemyLivingElves()) {
+                if(p.inRange(e, 4*(e.attackRange)))
+                    return true;
+            }
+            for(Creature c:game.getEnemyCreatures()) {
+                if(p.inRange(c, (c.attackRange)*4)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 	
 	
 	
