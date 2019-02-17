@@ -23,7 +23,7 @@ public class SkillzLib {
 	}
 	
 	
-	private int howManyObjectsAroundLocation(Game game, Location location, GameObject[] objects, int range) {
+	public int howManyObjectsAroundLocation(Game game, Location location, GameObject[] objects, int range) {
     	int count=0;
     	for(GameObject object: objects) {
     		if(object.inRange(location, range))
@@ -62,7 +62,7 @@ public class SkillzLib {
 		return closest;
 	}
     
-    public static ArrayList<Location> getMyMFLocs(Game game){
+    public static ArrayList<Location> getMyBunkerMFLocs(Game game){
         int radius = game.castleSize+ game.portalSize;
         Location middle = new Location(game.rows/2, game.cols/2);
         Location myCastle = new Location(game.getMyCastle().location.row, game.getMyCastle().location.col);
@@ -86,6 +86,11 @@ public class SkillzLib {
         }
         return locs;
     }
+    
+    public static ArrayList<Location> getMyBunkerPLocs(Game game) {
+		
+    	return null;
+	}
 	
 	
 	

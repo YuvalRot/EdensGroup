@@ -19,6 +19,11 @@ public class MyBot implements SkillzBot {
 	
 	public static void setup(Game game) {
 		bunker = true;
+		/**
+		 * bunker global variables;
+		 */
+		bunkerManaFLoocation = SkillzLib.getMyBunkerMFLocs(game);
+		bunkerPortalsLocation = SkillzLib.getMyBunkerPLocs(game);
 	}
 	
 	public static boolean bunker(Game game) {
