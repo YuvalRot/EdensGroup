@@ -3,7 +3,7 @@ import elf_kingdom.*;
 import java.util.*;
 
 public class MyBot implements SkillzBot {
-
+	
 	static ArrayList<Location> bunkerManaFLoocation = null, bunkerPortalsLocation = null;
 	static boolean bunker;
 	
@@ -13,7 +13,6 @@ public class MyBot implements SkillzBot {
 		if(game.turn == 1) setup(game);
 		
 		if (bunker) bunker(game);
-		
 		
 		
 	}

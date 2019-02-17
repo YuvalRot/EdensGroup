@@ -1,4 +1,6 @@
 package bots;
+import java.util.ArrayList;
+
 import elf_kingdom.*;
 
 public class SkillzLib {
@@ -59,6 +61,31 @@ public class SkillzLib {
 		}
 		return closest;
 	}
+    
+    public static ArrayList<Location> getMyMFLocs(Game game){
+        int radius = game.castleSize+ game.portalSize;
+        Location middle = new Location(game.rows/2, game.cols/2);
+        Location myCastle = new Location(game.getMyCastle().location.row, game.getMyCastle().location.col);
+        int deltaR = myCastle.row - middle.row;
+        int deltaC = myCastle.col - middle.col;
+        double theta;
+        if(deltaC == 0)
+            theta = Math.PI/2;
+        else
+            theta = Math.atan(deltaR/deltaC);
+
+        if(deltaR < 0)
+            theta += Math.PI;
+
+        ArrayList<Location> locs = new ArrayList<Location>();
+        int row1, col1;
+        for(int i = 0; i < 3; i++) {
+            row1 = (int) (radius * Math.sin(theta - (i-1) * Math.PI/4)) + 1;
+            col1 = (int) (radius * Math.cos(theta - (i-1) * Math.PI/4)) + 1;
+            locs.add(new Location(row1, col1));
+        }
+        return locs;
+    }
 	
 	
 	
