@@ -316,4 +316,23 @@ public class SkillzLib {
 		return alacson/2;
 	}
 	
+	public static ArrayList<Building> getBuildingsInRange(Game game,Location loc,int range) {
+		/**
+		 * if there is a building in range from loc so it will return the building, if not it returns null.
+		 * SAFETY : it could return null;
+		 */
+		
+		ArrayList<Building> buildings = new ArrayList<>();
+		
+		for (Building building : game.getAllBuildings()) {
+			if (building.getLocation().inRange(loc, range)) {
+				buildings.add(building);
+			}
+		}
+		if(! buildings.isEmpty()) return buildings;
+		else return null;
+	}
+	
+	
+	
 }
